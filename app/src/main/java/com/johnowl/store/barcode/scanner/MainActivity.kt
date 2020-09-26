@@ -111,7 +111,7 @@ class MainActivity : AppCompatActivity() {
                 val codes: SparseArray<Barcode> = detections.detectedItems
                 val code = codes.valueAt(0).displayValue
                 Log.v("BARCODE_PROCESSOR", "Code found: $code")
-                startCreateProductActivity(code)
+                startShowBarcodeActivity(code)
             } else {
                 Log.v("BARCODE_PROCESSOR", "Code not found")
             }
@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun startCreateProductActivity(barcode: String) {
+    private fun startShowBarcodeActivity(barcode: String) {
         val intent = Intent(this, ShowBarcodeActivity::class.java).apply {
             putExtra(EXTRA_MESSAGE, barcode)
         }
